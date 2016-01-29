@@ -15,12 +15,13 @@
   <body>
   <main data-ng-app="DOBModule" data-ng-controller="DOBController">
       <!-- Dropdown input Dob-->
-      <div class="container">
+    <div class="container">
+    <form name="Form">
       <div class="form-group col-lg-12" data-ng-controller="DOBController">
           <label class="control-label" for="dob">Date of Birth<span class="important">*</span></label>
           <label for="dob" role="alert" class="help">
-            <span class="success" ng-show="nsuiFBMemForm.dob.$valid">Date is OK</span>
-            <span class="error" ng-show="nsuiFBMemForm.dob.$touched && nsuiFBMemForm.dob.$error.pattern">Invalid Date</span>
+            <span class="success" ng-show="Form.dob.$valid">Date is OK</span>
+            <span class="error" ng-show="Form.dob.$touched && Form.dob.$error.pattern">Invalid Date</span>
           </label>
           <div class="controls">
             <input name="dob" type="hidden" ng-model="dob.collection" ng-pattern="pattern.date" required>
@@ -38,6 +39,7 @@
             </div>
           </div>
         </div>
+      </form>
       </div>
   </main>
   <script src="./DOBController.js"></script>
