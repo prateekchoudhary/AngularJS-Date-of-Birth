@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>Date of Birth :: AngularJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <style type="text/css">
+      html{font:size:15px;}
+      body{background:#f2f4f9 none repeat scroll 0 0;margin:0 auto;}
+      .important{color:red;}
+    </style>
+  </head>
+  <body>
+  <main data-ng-app="DOBModule" data-ng-controller="DOBController">
+      <!-- Dropdown input Dob-->
+      <div class="container">
+      <div class="form-group col-lg-12" data-ng-controller="DOBController">
+          <label class="control-label" for="dob">Date of Birth<span class="important">*</span></label>
+          <label for="dob" role="alert" class="help">
+            <span class="success" ng-show="nsuiFBMemForm.dob.$valid">Date is OK</span>
+            <span class="error" ng-show="nsuiFBMemForm.dob.$touched && nsuiFBMemForm.dob.$error.pattern">Invalid Date</span>
+          </label>
+          <div class="controls">
+            <input name="dob" type="hidden" ng-model="dob.collection" ng-pattern="pattern.date" required>
+            <div class="col-xs-4 dropdown">
+                <select ng-model="dob.dayDefault" ng-options="d as d.name for d in calcDays track by d.value" class="form-control">
+                </select>
+            </div>
+            <div class="col-xs-4 dropdown">
+                <select ng-model="dob.monthDefault" ng-options="m as m.name for m in calcMonths track by m.value" class="form-control">
+                </select>
+            </div>
+            <div class="col-xs-4 dropdown">
+                <select ng-model="dob.yearDefault" ng-options="y as y.name for y in calcYears track by y.value" class="form-control">
+                </select>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  <script src="./DOBController.js"></script>
+  </body>
+</html>
