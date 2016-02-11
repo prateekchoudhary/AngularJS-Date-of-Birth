@@ -8,3 +8,6 @@ AngularJS Module for Date of Birth
 
 #TODO 
 Add javascript regex for valid date as in pattern.isDate
+
+#LICENSE
+MIT
